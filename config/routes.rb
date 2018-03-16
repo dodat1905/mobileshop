@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     resources :products do
       resources :comments
     end
-    resources :admin
+    resources :admin do
+      collection do
+        resources :coupon
+      end
+    end
     root "static_pages#home"
   end
 end

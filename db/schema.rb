@@ -33,18 +33,10 @@ ActiveRecord::Schema.define(version: 20180319062657) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "coupons", force: :cascade do |t|
-    t.string "coupon"
-    t.string "count"
-    t.string "percent"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "line_items", force: :cascade do |t|
     t.integer "product_id"
     t.integer "cart_id"
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.integer "order_id"
     t.integer "price"
     t.datetime "created_at", null: false

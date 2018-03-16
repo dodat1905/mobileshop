@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  attr_reader :remember_token, :activation_token, :reset_token
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
   has_many :comments, dependent: :destroy
   has_many :orders, dependent: :destroy
   devise :database_authenticatable, :registerable,

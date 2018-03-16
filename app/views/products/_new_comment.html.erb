@@ -1,0 +1,10 @@
+<% if logged_in? %>
+    <h2 class="form-signin-heading">Add a review</h2>
+<%= form_for [product, product.comments.build] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.text_area :description, placeholder: t("compose_new_micropost") %>
+  </div>
+  <%= f.submit t("post"), class: "btn btn-primary" %>
+<% end %>
+<% end %>

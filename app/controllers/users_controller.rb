@@ -11,8 +11,6 @@ class UsersController < ApplicationController
 
   def edit; end
 
-  private
-
   def find_user
     @user = User.find_by id: params[:id]
 

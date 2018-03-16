@@ -1,0 +1,14 @@
+<%= form_for coupon do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t :coupon %>
+  <%= f.text_field :coupon, class: "form-control" %>
+
+  <%= f.label t :count %>
+  <%= f.number_field :count, class: "form-control" %>
+
+  <%= f.label t :percent %>
+  <%= f.number_field :percent, class: "form-control" %>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
