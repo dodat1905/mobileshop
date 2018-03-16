@@ -8,13 +8,16 @@ end
  gem "rails", "~> 5.1.4"
  gem "sqlite3"
  gem "puma", "~> 3.7"
- gem "bootstrap-sass", "3.3.7"
+ gem "bootstrap-sass", "~> 3.3.7"
  gem "sass-rails", "~> 5.0"
  gem "uglifier", ">= 1.3.0"
  gem "coffee-rails", "~> 4.2"
  gem "turbolinks", "~> 5"
  gem "jbuilder", "~> 2.5"
  gem "font-awesome-rails"
+ gem "devise"
+ gem "config"
+ gem "ckeditor"
 
 group :development, :test do
  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -26,7 +29,7 @@ group :development, :test do
  gem "brakeman", require: false
  gem "jshint"
  gem "bundler-audit"
- gem "rubocop", require: false
+ gem "rubocop", "~> 0.51.0", require: false
  gem "rubocop-checkstyle_formatter", require: false
  gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails", require: false
  gem "scss_lint_reporter_checkstyle", require: false
@@ -36,6 +39,8 @@ group :development, :test do
  gem "autoprefixer-rails"
  gem "jquery-rails"
  gem "jquery-turbolinks"
+ gem "will_paginate"
+ gem "bcrypt"
 end
 
 group :development do

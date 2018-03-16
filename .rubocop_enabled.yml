@@ -32,9 +32,9 @@ Style/AsciiComments:
   Description: "Use only ascii symbols in comments."
   Enabled: true
 
-Naming:
-  Description: "Use only ascii symbols in identifiers."
-  Enabled: true
+Naming/AsciiIdentifiers:
+ Description: "Use only ascii symbols in identifiers."
+ Enabled: true
 
 Style/Attr:
   Description: "Checks for uses of Module#attr."
@@ -75,9 +75,9 @@ Style/CharacterLiteral:
   Description: "Checks for uses of character literals."
   Enabled: true
 
-Naming:
-  Description: "Use CamelCase for classes and modules."
-  Enabled: true
+Naming/ClassAndModuleCamelCase:
+ Description: "Use CamelCase for classes and modules."
+ Enabled: true
 
 Style/ClassAndModuleChildren:
   Description: "Checks style of children classes and modules."
@@ -113,9 +113,9 @@ Layout/CommentIndentation:
   Description: "Indentation of comments."
   Enabled: true
 
-Naming:
-  Description: "Constants should use SCREAMING_SNAKE_CASE."
-  Enabled: true
+Naming/ConstantName:
+ Description: "Constants should use SCREAMING_SNAKE_CASE."
+ Enabled: true
 
 Style/DefWithParentheses:
   Description: "Use def with parentheses when there are arguments."
@@ -185,9 +185,9 @@ Style/EvenOdd:
   Description: "Favor the use of Fixnum#even? && Fixnum#odd?"
   Enabled: true
 
-Naming:
-  Description: "Use snake_case for source file names."
-  Enabled: true
+Naming/FileName:
+ Description: "Use snake_case for source file names."
+ Enabled: true
 
 Style/FlipFlop:
   Description: "Checks for flip flops"
@@ -276,9 +276,9 @@ Style/MethodDefParentheses:
                  parentheses.
   Enabled: true
 
-Naming:
-  Description: "Use the configured style when naming methods."
-  Enabled: true
+Naming/MethodName:
+ Description: "Use the configured style when naming methods."
+ Enabled: true
 
 Style/ModuleFunction:
   Description: "Checks for usage of `extend self` in modules."
@@ -358,9 +358,9 @@ Style/PerlBackrefs:
   Description: "Avoid Perl-style regex back references."
   Enabled: true
 
-Naming:
-  Description: "Check the names of predicate methods."
-  Enabled: true
+Naming/PredicateName:
+ Description: "Check the names of predicate methods."
+ Enabled: true
 
 Style/Proc:
   Description: "Use proc instead of Proc.new."
@@ -555,9 +555,9 @@ Style/VariableInterpolation:
                  directly in strings.
   Enabled: true
 
-Naming:
-  Description: "Use the configured style when naming variables."
-  Enabled: true
+Naming/VariableName:
+ Description: "Use the configured style when naming variables."
+ Enabled: true
 
 Style/WhenThen:
   Description: "Use when x then ... for one-line cases."
@@ -644,16 +644,6 @@ Security:
 Lint/HandleExceptions:
   Description: "Don't suppress exception."
   Enabled: true
-
-# Lint/InvalidCharacterLiteral:
-#   Description: >-
-#                  Checks for invalid character literals with a non-escaped
-#                  whitespace character.
-#   Enabled: true
-
-# Lint/LiteralInCondition:
-#   Description: "Checks of literals used in conditions."
-#   Enabled: true
 
 Lint/LiteralInInterpolation:
   Description: "Checks for literals used in interpolation."
@@ -771,3 +761,4 @@ Rails/ScopeArgs:
 Rails/Validation:
   Description: "Use sexy validations."
   Enabled: true
+

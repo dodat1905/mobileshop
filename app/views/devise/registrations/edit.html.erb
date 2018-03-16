@@ -1,0 +1,38 @@
+<h2><%= "Edit" %><%= resource_name.to_s.humanize %></h2>
+
+<%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label t :email %><br />
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t("wait_confirm") %><%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.label t :password %> <i>(<%= t "blank" %>)</i><br />
+  <%= f.password_field :password, autocomplete: "off" %>
+  <% if @minimum_password_length %>
+    <br />
+    <em><%= @minimum_password_length %><%= t "characters_minimum" %></em>
+  <% end %>
+
+  <%= f.label t :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+  <%= f.label t :current_password %> <i>(<%= t "need_password" %>)</i><br />
+  <%= f.password_field :current_password, autocomplete: "off" %>
+
+  <%= f.label t :name %><br />
+  <%= f.text_field :name, autocomplete: "off" %>
+
+  <%= f.label t :address %><br />
+  <%= f.text_field :address, autocomplete: "off" %>
+
+  <%= f.label t :phone %><br />
+  <%= f.number_field :phone, autocomplete: "off" %>
+
+  <%= f.submit t("update") %>
+<% end %>
+
+<%= link_to t("back"), :back %>

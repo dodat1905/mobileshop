@@ -1,0 +1,314 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+
+// mixins, variables, etc.
+
+$gray: #808080;
+$gray-hight-light: #e8e8e8;
+$gray-medium-light: #eaeaea;
+$blue: #00f;
+$white: #fff;
+$red: #f00;
+$bbb: #bbb;
+$f1f1f1: #f1f1f1;
+$ff9f1a: #ff9f1a;
+$eee: #eee;
+$ff9f1a: #ff9f1a;
+$b36800: #b36800;
+
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+
+//miscellaneous
+
+.debug-dump {
+  @include box-sizing;
+  clear: both;
+  float: left;
+  margin-top: 45px;
+  width: 100%;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+//typography
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: $gray-light;
+  font-size: 1.2em;
+  font-weight: normal;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+// header
+
+.logo {
+  color: $white;
+  float: left;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-right: 10px;
+  padding-top: 9px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.stats {
+  margin-top: 0;
+  overflow: auto;
+  padding: 0;
+
+  a {
+    border-left: 1px solid $gray-lighter;
+    color: $gray;
+    float: left;
+    padding: 0 10px;
+
+    &:first-child {
+      border: 0;
+      padding-left: 0;
+    }
+
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+ //form
+
+input,
+textarea,
+select,
+.uneditable-input {
+  @include box-sizing;
+  border: 1px solid $bbb;
+  margin-bottom: 15px;
+  width: 100%;
+
+}
+
+input {
+  height: auto;
+}
+
+error-explanation {
+  color: $red;
+
+  ul {
+    color: $red;
+    margin: 0 0 30px;
+  }
+}
+
+.field-with-errors {
+
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: -10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+.row.content {
+  height: 550px;
+}
+
+.sidenav {
+  background-color: $f1f1f1;
+  height: 100%;
+}
+
+.mini-submenu {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, .9);
+  border-radius: 4px;
+  display: none;
+  padding: 9px;  
+  width: 42px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.preview-pic {
+  flex-grow: 1;
+}
+
+.tab-content {
+  overflow: hidden;
+
+  img {
+    animation-duration: .3s;
+    animation-name: opacity;
+    width: 100%;
+  }
+}
+
+.card {
+  background: $eee;
+  line-height: 1.5em;
+  margin-top: 50px;
+  padding: 3em;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.details {
+  display: normal;
+ }
+
+.product-title,
+.price {
+  font-weight: bold;
+  text-transform: UPPERCASE;
+}
+
+.checked,
+.price span {
+  color: $ff9f1a;
+}
+
+.product-title,
+.product-description,
+.price,
+.vote {
+  margin-bottom: 15px;
+}
+
+.product-title {
+  margin-top: 0;
+}
+
+.size {
+  margin-right: 10px;
+}
+
+.size:first-of-type {
+  margin-left: 40px;
+}
+
+.color {
+  border-radius: 2px;
+  display: inline-block;
+  height: 2em;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 2em;
+}
+
+.color:first-of-type {
+  margin-left: 20px;
+}
+
+.add-to-cart,
+.like {
+  background: $ff9f1a;
+  border: 0;
+  color: $white;
+  font-weight: bold;
+  padding: 1.2em 1.5em;
+  text-transform: UPPERCASE;
+  transition: background .3s ease;
+}
+
+.add-to-cart:hover,
+.like:hover {
+  background: $b36800;
+  color: $white;
+}
+
+.not-available {
+  line-height: 2em;
+  text-align: center;
+}
+
+.not-available:before {
+  color: $white;
+  font-family: fontawesome;
+}
+
+.tooltip-inner {
+  padding: 1.3em;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    transform: scale(3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

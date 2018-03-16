@@ -24,7 +24,9 @@ RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck: { except_methods: ['CartsController#show',
-  'LineItemsController#index'] }
+  'LineItemsController#index', 'StaticPagesController#home',
+  'RegistrationsController#sign_up_params',
+  'RegistrationsController#account_update_params'] }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: ['Cart#total_price', 'LineItem#total_price'] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }

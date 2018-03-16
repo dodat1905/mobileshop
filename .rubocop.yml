@@ -18,9 +18,20 @@ AllCops:
     - 'db/**/*'
     - 'spec/**/*'
     - 'script/rails'
+    - 'script/cucumber'
     - 'config/**/*'
-  # By default, the rails cops are not run. Override in project or home
-  # directory .rubocop.yml files, or by giving the -R/--rails option.
+    - 'features/**/*'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - 'lib/**/*'
+    - 'Guardfile'
+    - 'Capfile'
+    - 'Rakefile'
+    - 'config.ru'
+Documentation:
+    Enabled: false
+# By default, the rails cops are not run. Override in project or home
+# directory .rubocop.yml files, or by giving the -R/--rails option.
 Rails:
   Enabled: true
 
@@ -224,17 +235,13 @@ Layout/EmptyLinesAroundModuleBody:
     - no_empty_lines
 
 # Checks whether the source file has a utf-8 encoding comment or not
-# Style/Encoding:
-#   EnforcedStyle: when_needed
-#   SupportedStyles:
-#     - when_needed
-#     - always
 
-Naming:
+Naming/FileName:
   Exclude:
     - '**/Rakefile'
     - '**/Gemfile'
     - '**/Capfile'
+
 
 # Checks use of for or each in multiline loops.
 Style/For:
@@ -266,8 +273,8 @@ Style/HashSyntax:
     - ruby19
     - hash_rockets
 
-Metrics/LineLength:
-  Max: 80
+Style/IfUnlessModifier:
+  MaxLineLength: 80
 
 # Checks the indentation of the first key in a hash literal.
 Layout/IndentHash:
@@ -328,7 +335,7 @@ Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 10
 
-Naming:
+Naming/MethodName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
@@ -357,7 +364,7 @@ Style/PercentLiteralDelimiters:
     '%W': ()
     '%x': ()
 
-Naming:
+Naming/PredicateName:
   NamePrefixBlacklist:
     - get_
 
@@ -486,14 +493,14 @@ Style/TrivialAccessors:
     - to_s
     - to_sym
 
-Naming:
-  EnforcedStyle: snake_case
-  SupportedStyles:
-    - snake_case
-    - camelCase
+Naming/VariableName:
+ EnforcedStyle: snake_case
+ SupportedStyles:
+   - snake_case
+   - camelCase
 
-Metrics/LineLength::
-  Max: 80
+Style/WhileUntilModifier:
+  MaxLineLength: 80
 
 Style/WordArray:
   MinSize: 0
@@ -555,3 +562,4 @@ Rails/ScopeArgs:
 Rails/Validation:
   Include:
     - app/models/**/*.rb
+
