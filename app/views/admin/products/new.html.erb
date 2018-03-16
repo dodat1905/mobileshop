@@ -1,0 +1,11 @@
+<% provide :title, t("new_product") %>
+<div class="col-md-9">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= t "new_product" %></h3>
+    </div>
+    <div class="panel-body">
+      <%= render "form", product: @product, new_product: @new_product %>
+    </div>
+  </div>
+</div>

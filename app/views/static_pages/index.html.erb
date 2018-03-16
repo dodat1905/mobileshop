@@ -1,0 +1,21 @@
+<% provide :title, t("index") %>
+<div class="container">
+  <div class="row">
+    <%= render "sidebar", brands: @brands %>
+    <div class="col-sm-9">
+      <% @products.each do |product| %>
+        <div class="col-sm-3">
+          <div class="panel panel-primary">
+            <%= link_to product.name, product_path(product),
+              class: "list-group-item active main-color-bg" %>
+            <div class="panel-body"><img
+              src="https://placehold.it/150x80?text=IMAGE"
+              class="img-responsive" style="width:100%" alt="Image"></div>
+            <div class="panel-footer"><%= button_to t("add_to_cart"),
+              line_items_path(product_id: product) %></div>
+          </div>
+        </div>
+      <% end %>
+    </div></div><div class="panel-footer"><center><%= will_paginate @products %></center></div></div>
+    </div>
+  </div>

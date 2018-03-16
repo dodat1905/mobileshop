@@ -7,12 +7,15 @@ Rails.application.routes.draw do
     resources :users, only: %i(show)
     resources :brands, only: %i(show index)
     resources :products, only: %i(show index)
+    root "static_pages#index"
+    resources :orders, only: %i(new create show)
+    post "orders/new", to: "orders#create"
+    get "admin", to: "admin#index"
     namespace :admin do
       resources :products
       resources :brands
+      resources :orders
+      resources :users
     end
-    root "static_pages#home"
-    resources :orders
-    post "orders/new", to: "orders#create"
   end
 end

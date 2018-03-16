@@ -1,36 +1,85 @@
-<%= form_for order do |f| %>
-  <div class="form-group">
-    <div class="col-md-12">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-  </div>
+<div class="container wrapper">
+  <div class="row cart-body">
+    <form class="form-horizontal" method="post" action="">
+      <%= render "order_detail", cart: cart %>
+      <div class="col-lg-6 col-md-6 col-sm-6
+        col-xs-12 col-md-pull-6 col-sm-pull-6">
+      <div class="panel panel-info">
+        <div class="panel-heading"><%= t "checkout_form" %></div>
+          <div class="panel-body">
+            <div class="form-group">
+              <div class="col-md-12">
+                <h4><%= t "information" %></h4>
+              </div>
+            </div>
+            <%= form_for order do |f|%>
+              <%= render "shared/error_messages", object: f.object %>
+              <% if current_user.present? %>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :name%>
+                    <%= f.text_field :name, value: current_user.name, class: "form-control"%>
+                  </div>
+                </div>
 
-  <div class="form-group">
-    <div class="col-md-12">
-     <%= f.label :email %>
-     <%= f.email_field :email, class: "form-control" %>
-    </div>
-  </div>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :email%>
+                    <%= f.text_field :email, value: current_user.email, class: "form-control"%>
+                  </div>
+                </div>
 
-  <div class="form-group">
-    <div class="col-md-12">
-     <%= f.label :address %>
-     <%= f.text_field :address, class: "form-control" %>
-    </div>
-  </div>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :address%>
+                    <%= f.text_field :address, value: current_user.address, class: "form-control"%>
+                  </div>
+                </div>
 
-  <div class="form-group">
-    <div class="col-md-12">
-      <%= f.label :phone %>
-      <%= f.number_field :phone, class: "form-control" %>
-    </div>
-  </div>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :phone%>
+                    <%= f.number_field :phone, value: current_user.phone, class: "form-control"%>
+                  </div>
+                </div>
+              <% else %>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :name%>
+                    <%= f.text_field :name, value: current_user.name, class: "form-control"%>
+                  </div>
+                </div>
 
-  <div class="form-group">
-    <div class="col-md-12">
-     <%= f.submit "Submit", class: "btn btn-primary" %>
-    </div>
-  </div>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :email%>
+                    <%= f.text_field :email, class: "form-control"%>
+                  </div>
+                </div>
 
-<% end %>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :address%>
+                    <%= f.text_field :address, class: "form-control"%>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <%= f.label :phone%>
+                    <%= f.number_field :phone, class: "form-control"%>
+                  </div>
+                </div>
+              <% end %>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <%= f.submit "Submit", class: "btn btn-primary form-control" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

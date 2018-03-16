@@ -16,54 +16,63 @@
             <tr>
               <td class="col-sm-2 col-md-3">
                 <div class="media">
-                  <%= link_to "", "#", class: "thumbnail pull-left" %>
-                    <h4 class="media-heading"><a href="#"><%= item.product.name %></a></h4>
-                    <h5 class="media-heading"> by <a href="#"><%= item.brand.name %></a></h5>
-                    <span><%= t ".status" %>: </span>
-                    <span class="text-success">
-                      <strong><%= item.status %></strong>
-                    </span>
-                  </div>
+                  <%= link_to "","#", class: "thumbnail pull-left" %>
+                    <h4 class="media-heading"><a href="#">
+                      <%= link_to item.product.name,
+                      product_path(item.product) %></a></h4>
+                    <h5 class="media-heading"> by <a href="#">
+                      <%= link_to item.product.brand.name,
+                      brand_path(item.product.brand) %></a></h5>
+                    <span>Status: </span><span class="text-success"><strong>
+                      <%= t "in_stock" %></strong></span>
                 </div>
               </td>
               <td class="col-sm-1 col-md-1">
-                <input type="email" class="form-control" id="exampleInputEmail1" value="<%= item.quantity %>" disabled>
+                  <input type="email" class="form-control"
+                  id="exampleInputEmail1" value="<%= item.quantity %>" disabled>
               </td>
-              <td class="col-sm-1 col-md-1 text-center"><strong><%= item.product.price %></strong></td>
-              <td class="col-sm-1 col-md-1 text-center"><strong><%= item.total_price %></strong></td>
+              <td class="col-sm-1 col-md-1 text-center">
+                <strong><%= item.product.price %></strong></td>
+              <td class="col-sm-1 col-md-1 text-center">
+                <strong><%= item.total_price %></strong></td>
               <td class="col-sm-1 col-md-1">
-                <%= button_to line_item_path(item.id), method: :delete, class: "btn btn-danger" do %>
-                  <span class="glyphicon glyphicon-remove"></span> <%= t ".remove" %>
+                <%= button_to line_item_path(item.id), method: :delete,
+                  class: "btn btn-danger" do %>
+                  <span class="glyphicon glyphicon-remove">
+                    </span> <%= t ".remove" %>
                 <% end %>
               </td>
             </tr>
           <% end %>
-
           <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td><h3><%= t ".total" %></h3></td>
-            <td class="text-right"><h3><strong><%= @cart.total_price %></strong></h3></td>
+            <td><h3><%= t "total" %></h3></td>
+            <td class="text-right"><h3><strong><%= @cart.total_price %>
+              </strong></h3></td>
           </tr>
           <tr>
-            <td><%= button_to cart_path, method: :delete, class: "btn btn-primary" do %>
-              <%= t ".empty" %>
-            <% end %>
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-shopping-cart"></span> <%= t ".continue" %>
-              </button>
-            </td>
-            <td>
-              <%= button_to new_order_path, method: :get, class: "btn btn-success" do %>
-                <%= t ".checkout" %>
-                <span class="glyphicon glyphicon-play"></span>
+            <td><%= button_to cart_path, method: :delete,
+              class: "btn btn-primary" do %>
+                <%= t ".empty" %>
               <% end %>
-            </td>
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-shopping-cart">
+                    </span> <%= t ".continue" %>
+                </button>
+              </td>
+              <td>
+                <%= button_to new_order_path, method: :get,
+                  class: "btn btn-success" do%>
+                  <%= t ".checkout" %> <span class="glyphicon glyphicon-play">
+                    </span>
+                <% end %>
+              </td>
           </tr>
         </tbody>
       </table>

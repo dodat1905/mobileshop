@@ -66,6 +66,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     brakeman (4.2.0)
     builder (3.2.3)
     bundler-audit (0.6.0)
@@ -154,6 +156,8 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.23)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
@@ -382,6 +386,7 @@ DEPENDENCIES
   bcrypt
   better_errors
   bootstrap-sass (~> 3.3.7)
+  bootstrap-will_paginate (= 1.0.0)
   brakeman
   bundler-audit
   byebug
@@ -393,6 +398,7 @@ DEPENDENCIES
   devise
   eslint-rails!
   factory_bot_rails
+  faker
   font-awesome-rails
   guard-rspec
   jbuilder (~> 2.5)

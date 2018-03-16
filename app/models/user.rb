@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :address, presence: true, length:
     {maximum: Settings.address.maximum}
 
+  scope :desc, ->{order created_at: :desc}
+
   ATTRIBUTES_PARAMS =
     %i(
       name address email password

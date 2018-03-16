@@ -1,0 +1,20 @@
+<%= form_for [:admin, order] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label t :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label t :email %>
+  <%= f.text_field :address, class: "form-control" %>
+
+  <%= f.label t :phone %>
+  <%= f.number_field :phone, class: "form-control" %>
+
+  <%= f.label :order_status %>
+  <%= f.select :order_status, Order.order_statuses.keys, prompt: 'Select a payment method' %>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

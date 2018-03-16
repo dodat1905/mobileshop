@@ -1,8 +1,9 @@
 class LineItemsController < ApplicationController
-  attr_reader :line_item, :cart, :item
+  attr_reader :line_item, :cart, :item, :product
 
   before_action :current_cart, only: :create
   before_action :find_item, only: :destroy
+  before_action :find_product, only: :create
 
   def index
     item = LineItem.find_by id: params[:id]
@@ -12,9 +13,8 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    product = Product.find_by id: params[:product_id]
     @line_item = cart.add_product product
-
+    line_item.price = product.price
     return item_saved if line_item.save
     flash[:danger] = t ".error"
     redirect_to root_url
@@ -27,6 +27,10 @@ class LineItemsController < ApplicationController
   end
 
   private
+
+  def find_product
+    @product = Product.find_by id: params[:product_id]
+  end
 
   def find_item
     @item = LineItem.find_by id: params[:id]

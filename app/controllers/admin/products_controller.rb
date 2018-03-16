@@ -1,23 +1,61 @@
 module Admin
   class ProductsController < Admin::BaseController
-    attr_reader :product
+    attr_reader :product, :brand
 
-    before_action :find_product, only: %i(show)
-    before_action :brands, only: %i(index show)
-    before_action :paginate_product, only: %i(index)
+    before_action :find_product, only: %i(show edit update destroy)
+    before_action :find_brand, only: %i(new)
 
-    def index; end
+    def index
+      @products = Product.desc.paginate page: params[:page], per_page: 10
+    end
+
+    def new
+      @product =
+        if brand.present?
+          brand.products.new
+        else
+          @product = Product.new
+        end
+    end
+
+    def create
+      @product = Product.new product_params
+      if product.save
+        flash[:success] = t "product_created"
+        redirect_to admin_products_url
+      else
+        render :new
+      end
+    end
 
     def show; end
 
-    private
+    def edit; end
 
-    def brands
-      @brands = Brand.desc.all
+    def update
+      if product.update_attributes product_params
+        flash[:success] = t "product_updated"
+        redirect_to admin_products_url
+      else
+        render :edit
+      end
     end
 
-    def paginate_product
-      @products = Product.desc.paginate page: params[:page]
+    def destroy
+      product.destroy
+      flash[:success] = t "product_deleted"
+      redirect_to request.referer || root_url
+    end
+
+    private
+
+    def find_brand
+      @brand = Brand.find_by id: params[:brand_id]
+    end
+
+    def product_params
+      params.require(:product).permit :available, :name,
+        :description, :image, :price, :brand_id, :coupon, :count, :percent
     end
 
     def find_product
