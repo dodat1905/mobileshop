@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     post "/increase/:id", to: "line_items#index", as: :quantity
     devise_for :users, controllers: { registrations: "registrations" }
     resources :users, only: %i(show)
-    resources :brands
-    resources :products
+    resources :brands, only: %i(show index)
+    resources :products, only: %i(show index)
     namespace :admin do
       resources :products
       resources :brands
