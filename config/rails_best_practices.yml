@@ -23,6 +23,7 @@ ProtectMassAssignmentCheck: { ignored_files: 'models/application_record.rb' }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
+<<<<<<< f93dfecbf03e37d7416c7695ec2af175fc755ea2
 RemoveUnusedMethodsInControllersCheck: { except_methods: ['CartsController#show',
   'LineItemsController#index', 'StaticPagesController#home',
   'RegistrationsController#sign_up_params',
