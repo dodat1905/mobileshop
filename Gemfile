@@ -15,9 +15,14 @@ end
  gem "turbolinks", "~> 5"
  gem "jbuilder", "~> 2.5"
  gem "font-awesome-rails"
+<<<<<<< 36a695841af1901c8f2147f2aa4d0c7c827fb081
  gem "devise"
  gem "config"
  gem "ckeditor"
+=======
+ gem "ckeditor"
+ gem "omniauth-facebook"
+>>>>>>> create admin panel, fix style
 
 group :development, :test do
  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

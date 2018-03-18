@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
   before_action :find_brand, only: %i(edit show update destroy)
 
   def index
-    @brands = Brand.paginate page: params[:page]
+    @brands = Brand.desc.paginate page: params[:page]
   end
 
   def new
@@ -21,8 +21,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brands = Brand.all
-    @brand = Brand.find_by id: params[:id]
+    @brands = Brand.desc.all
   end
 
   def edit; end
