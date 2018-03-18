@@ -49,6 +49,9 @@
 	        </div>
 	      </div>
 	    </div>
+      <%= render partial: "comments/comment", collection: @comments, locals: { comments: @comments, product: @product } %>
+          <%= will_paginate @comments %>
+        <%= render "comments/new_comment", comment: @comment, product: @product %>
       </div>
     </div>
   </div>

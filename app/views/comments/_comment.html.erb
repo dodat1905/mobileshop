@@ -1,0 +1,15 @@
+<% comments.each do |comment| %>
+  <div class="row" style="padding-left:4%;">
+  <HR>
+    <p><small><%= comment.user.name %><em>
+    <%= time_ago_in_words comment.created_at %><%= " ago" %></em></small></p>
+    <p><%= comment.description %></p>
+    <% if user_signed_in? %>
+      <p><%= link_to  product_comment_path(product, comment),
+      method: :delete, data: { confirm: "Are you sure?"} do %>
+      <i class="fa fa-trash-o fa-fw"></i>
+      <% end %>
+    </p>
+    <% end %>
+  </div>
+<% end %>

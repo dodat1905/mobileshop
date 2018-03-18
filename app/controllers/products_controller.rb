@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
   attr_reader :product
 
   before_action :find_product, only: %i(edit show update destroy)
-  before_action :all_brands, only: %i(new index show)
-  before_action :find_products, only: %i(show)
+  before_action :all_brands, only: %i(index show)
 
   def new
     @product = Product.new
@@ -23,7 +22,10 @@ class ProductsController < ApplicationController
     @products = Product.desc.paginate page: params[:page]
   end
 
-  def show; end
+  def show
+    @comments = product.comments.desc.paginate(page: params[:page],
+      per_page: 10)
+  end
 
   def edit; end
 
@@ -54,10 +56,6 @@ class ProductsController < ApplicationController
 
   def all_brands
     @brands = Brand.desc.all
-  end
-
-  def find_products
-    @products = Product.desc.paginate page: params[:page]
   end
 
   def product_params

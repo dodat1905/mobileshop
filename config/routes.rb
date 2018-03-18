@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     get "admin/products/new", to: "products#new"
     get "admin/brands/new", to: "brands#new"
     resources :brands
-    resources :products
+    resources :products do
+      resources :comments
+    end
     resources :admin
     root "static_pages#home"
   end
