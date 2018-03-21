@@ -29,8 +29,66 @@ en:
   home: "Home"
   admin: "Admin"
   user: "User"
+  profile: "Profile"
+  edit_profile: "Edit profile"
+  logout: "Logout"
+  log_in: "login"
+  errors: "errors"
+  brand_updated: "The brand has been updated"
+  created_brand: "Created a new brand"
+  brand_deleted: "Deleted brand"
+  failed_brand: "This brand was not found"
+  product_created: "NProduct Created"
+  product_updated: "This product has been updated"
+  product_deleted: "This product was deleted"
+  failed_product: "This product is not found"
+  user_deleted: "This user has been deleted"
+  :name_brand: "Brand Name"
+  edit_brand: "Edit brand"
+  all_brands: "All Brands"
+  new_brand: "New brand"
+  brand: "Brand"
+  hello: "hello"
+  Copyright: "Copyright 2018"
+  :name_product: "Product name"
+  :Available: "Status"
+  :price: "price"
+  :description: "description"
+  :coupon code: "discount code"
+  :count: "Number of imports"
+  :percentage: "percentage"
+  :brand_id: "Brand"
+  edit_product: "Edit Product"
+  all_products: "All Products"
+  new_product: "New product"
+  index: "Homepage"
+  activerecord:
+    errors:
+      format: "%{attribute} %{message}"
+      messages:
+        accepted: must be accepted
+        blank: can't be blank
+        present: must be blank
+        confirmation: doesn't match %{attribute}
+        empty: can't be empty
+        invalid: is invalid
+        not_a_number: is not a number
+        not_an_integer: must be an integer
+        required: must exist
+  add_to_cart: "Add to cart"
+  product: "Product"
+  mobile: "Mobile:"
+  Stock: "In Stock"
+  out_of_stock: "Out of stock"
+  price: "Price: "
   profile: "profile"
   edit_profile: "edit profile"
   logout: "Logout"
   log_in: "login"
   errors: "errors"
+  review_order: "View Order"
+  checkout_form: "Payments"
+  information: "Payment Information"
+  order_total: "Total payment"
+  quantity: "quantity"
+  edit: "Edit"
