@@ -3,55 +3,44 @@
   <div class="container">
     <div class="row">
       <%= render "brands/brand", brands: @brands %>
-      <div class="col-md-9">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= t "product" %></h3>
-          </div>
-          <div class="panel-body">
-            <div class="preview col-md-6">
-              <div class="preview-pic tab-content">
-                <div class="tab-pane active" id="pic-1">
-                  <img src="http://placekitten.com/200/126">
-                </div>
-              </div>
-            </div>
-            <div class="details col-md-6">
-              <h3 class="product-title">
-                <%= t "mobile" %>
-                <%= link_to @product.name, @product %>
-              </h3>
-              <h2 class="product-title">
-                <%= @product.available? ? t("stock") : t("out_of_stock") %>
-              </h2>
-              <p class="product-description">
-                <%= sanitize @product.description.html_safe %>
-              </p>
-              <h4 class="price">
-                <%= t "price" %>
-                <span><%= number_to_currency @product.price %></span>
-              </h4>
-              <h4 class="price">
-                <%= t "brand" %>: <%= link_to @product.brand.name %>
-              </h4>
-              <div class="action">
-                <button class="add-to-cart btn btn-default" type="button">
-                  <%= link_to t("add_to_cart"),
-                    line_items_path(product_id: @product), method: :post %>
-                </button>
-                <button class="like btn btn-default" type="button">
-                  <span class="fa fa-heart"></span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <%= render partial: "comments/comment",
-            locals: {comments: @support_comment.comments,
-            product: @support_comment.product} %>
-          <%= will_paginate @support_comment.comments %>
-          <%= render "comments/new_comment", product: @product,
-            create_comment: @support_comment.create_comment %>
+      <div class="col-sm-9 padding-right">
+        <div class="features_items">
+          <h2 class="title text-center"><%= t "products" %></h2>
         </div>
+        <div class="product-details">
+          <div class="col-sm-5">
+            <div class="view-product">
+              <%= image_tag "product1.jpg" %>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div class="product-information">
+              <span><span><%= @product.name %></span></span>
+              <h2><%= t "price" %><%= number_to_currency @product.price %></h2>
+              <p>
+                <b><%= t "availability" %>: </b>
+                <%= @product.available? ? t("stock") : t("out_of_stock") %>
+              </p>
+              <p>
+                <b><%= t "brand" %>:</b>
+                <%= link_to @product.brand.name %>
+              </p>
+              <p>
+                <b><%= t "description" %>:</b>
+                <%= sanitize @product.description.html_safe %>
+              </p><br />
+              <%= link_to t("add_to_cart"),
+                line_items_path(product_id: @product), method: :post,
+                class: "add-to-cart add-to-cart-button" %>
+            </div>
+          </div>
+        </div>
+        <%= render partial: "comments/comment",
+        locals: {comments: @support_comment.comments,
+        product: @support_comment.product} %>
+        <%= will_paginate @support_comment.comments %>
+        <%= render "comments/new_comment", product: @product,
+        create_comment: @support_comment.create_comment %>
       </div>
     </div>
   </div>

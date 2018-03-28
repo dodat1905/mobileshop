@@ -5,7 +5,7 @@
   <%= f.text_field :name, class: "form-control" %>
 
   <%= f.label t :available %>
-  <%= f.check_box :available %>
+  <%= f.check_box :available %><br />
 
   <%= f.label t :price %>
   <%= f.number_field :price, class: "form-control" %>
@@ -13,19 +13,10 @@
   <%= f.label t :description %>
   <%= f.cktext_area :description, placeholder: t("compose_new_micropost") %>
 
-  <%= f.label t :coupon %>
-  <%= f.text_field :coupon, class: "form-control" %>
-
-  <%= f.label t :count %>
-  <%= f.number_field :count, class: "form-control" %>
-
-  <%= f.label t :percent %>
-  <%= f.number_field :percent, class: "form-control" %>
-
-  <%= f.label :brand_id %>
+  <%= f.label :brand %><br />
   <%= f.select :brand_id,
     Brand.all.collect {|brand| [brand.name, brand.id]},
-    prompt: t("select") %>
+    prompt: t("select") %><br /><br />
 
   <%= f.submit class: "btn btn-primary" %>
   <% end %>

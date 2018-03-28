@@ -3,7 +3,6 @@
     <th><%= t "name_product" %></th>
     <th><%= t "name_brand" %></th>
     <th><%= t "price" %></th>
-    <th><%= t "coupon" %></th>
     <th><%= t "option" %></th>
   </tr>
   <% products.each do |product| %>
@@ -11,8 +10,7 @@
       <td><%= link_to product.name, product %></td>
       <td><%= link_to product.brand.name,
         product.brand %></td>
-      <td><%= product.price %></td>
-      <td><%= product.coupon %></td>
+      <td><%= number_to_currency product.price %></td>
       <td><%= link_to t("edit"), edit_admin_product_path(product) %> |
         <%= link_to t("delete"), admin_product_path(product),
         method: :delete, data: {confirm: t("are_you_sure")} %>

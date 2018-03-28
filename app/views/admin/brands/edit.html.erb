@@ -1,7 +1,19 @@
 <% provide :title, t("edit_brand") %>
-<h1><%= t "edit_brand" %></h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render "form", brand: @brand %>
+<%= render "admin/static_pages/header" %>
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <%= render "admin/static_pages/sidebar" %>
+      <div class="col-md-9">
+        <div class="panel panel-primary">
+          <div class="add-to-cart-button">
+            <%= t "brand" %>
+          </div>
+          <div class="panel-body">
+            <%= render "form", brand: @brand %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

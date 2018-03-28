@@ -1,10 +1,13 @@
 <% provide :title, t("order") %>
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
+      <div class="features_items">
+        <h2 class="title text-center"><%= t "order" %></h2>
+      </div>
       <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title"><%= t "product" %></h3>
+        <div class="add-to-cart-button">
+          <%= t "product" %>
         </div>
         <div class="panel-body">
           <table class="table table-striped table-hover">
@@ -13,12 +16,14 @@
               <th><%= t "email" %></th>
               <th><%= t "address" %></th>
               <th><%= t "phone" %></th>
+              <th></th>
             </tr>
             <tr>
               <td><%= @line_item.order.name %></td>
               <td><%= @line_item.order.email %></td>
               <td><%= @line_item.order.address %></td>
               <td><%= @line_item.order.phone %></td>
+              <td></td>
             </tr>
             <tr>
               <th><%= t "product" %></th>

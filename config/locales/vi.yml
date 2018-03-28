@@ -119,7 +119,7 @@ vi:
   number:
     currency:
       format:
-        unit: "VNĐ"
+        unit: " VNĐ"
         delimiter: ","
         separator: "."
         precision: 0
@@ -211,3 +211,19 @@ vi:
   removed: "Đã xoá tất cả sản phẩm ở giỏ hàng"
   not_exist: "Sản phẩm không tồn tại"
   quest: "Khách"
+  content_product_code: "Nhấn vào liên kết dưới đây để xem đơn hàng của quý khách"
+  hi: "Xin chào"
+  view_your_order: "Đơn hàng của bạn"
+  check: "Kiểm tra email để xem đơn hàng của bạn"
+  send_product_code: "Cảm ơn bạn đã đặt hàng"
+  thank: "Cảm ơn bạn đã đặt hàng"
+  30_days_return: "30 ngày hoàn tiền"
+  free-shipping: "Miễn phí giao hàng"
+  secure_payments: "Bảo mật tốt"
+  new_products: "Sản phẩm mới nhất"
+  comment: "Bình luận sản phẩm"
+  cart: "Giỏ hàng"
+  will_paginate:
+    previous_label: "&#8592; Trang trước"
+    next_label: "Trang sau &#8594; "
+    page_gap: "&hellip;"

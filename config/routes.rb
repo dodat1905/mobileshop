@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :static_pages, only: %i(index)
     end
     root "static_pages#index"
-    resources :orders
+    resources :orders, except: :destroy
     post "orders/new", to: "orders#create"
     get :search, to: "searches#index"
     resources :products

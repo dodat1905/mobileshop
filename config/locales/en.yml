@@ -145,3 +145,8 @@ en:
   removed: "Removed all products"
   not_exist: "Products not exist"
   quest: "Quest"
+  content_product_code: "Click on link below to view your order"
+  view_your_order: "View your order"
+  send_product_code: "Thank you for your order"
+  check: "Check your email to view your order"
+  thank: "Thank you for your order"

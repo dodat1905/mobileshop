@@ -18,7 +18,7 @@ $(document).on 'ready', ->
       $('#notify-count').text(0)
 
 request_notification = () ->
-  $.ajax '/notifications/update',
+  $.ajax '/notifications',
   type: 'GET',
   dataType: 'JSON',
   success:(data) ->

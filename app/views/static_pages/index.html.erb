@@ -1,10 +1,40 @@
 <% provide :title, t("index") %>
+<div class="promo-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="single-promo promo1">
+          <i class="fa fa-refresh"></i>
+          <p><%= t "30_days_return" %></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-promo promo2">
+          <i class="fa fa-truck"></i>
+          <p><%= t "free-shipping" %></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-promo promo3">
+          <i class="fa fa-lock"></i>
+          <p><%= t "secure_payments" %></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-promo promo4">
+          <i class="fa fa-gift"></i>
+          <p><%= t "new_products" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <%= render "sidebar", brands: @brands %>
     <%= render "products/product", products: @products %>
   </div>
-  <div class="panel-footer">
-    <center><%= will_paginate @products %></center>
-  </div>
+</div>
+<div class="panel-footer">
+  <center><%= will_paginate @products %></center>
 </div>

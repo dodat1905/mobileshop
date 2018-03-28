@@ -1,17 +1,15 @@
 class OrdersController < ApplicationController
-  attr_reader :cart, :order, :line_items, :line_item
-
   before_action :current_cart, only: %i(new create)
-  before_action :ensure_cart_isnt_empty, only: :new
   before_action :find_order, only: %i(show update)
   before_action :find_line_item, only: %i(show edit)
   before_action :create_order, only: :create
 
   def new
-    @order = Order.new
+    cart.line_items.empty? ? redirect_to(root_path) : @order = Order.new
   end
 
   def create
+    order.update_attributes product_code: generate
     order.add_line_items_from_cart cart
 
     if order.save
@@ -24,9 +22,17 @@ class OrdersController < ApplicationController
 
   def show
     @line_items = order.line_items
-    redirect_to root_path unless current_user?
+    user_signed_in? ? current_order : redirect_to(root_path)
+  end
 
-    current_order if current_user?
+  def edit
+    @order = Order.find_by id: params[:id], product_code: params[:product_code]
+
+    if order
+      @line_items = order.line_items
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -36,9 +42,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def current_user?
-    current_user
-  end
+  attr_reader :cart, :order, :line_items, :line_item, :generate
 
   def current_order
     return if current_user.orders.find_by id: params[:id]
@@ -65,29 +69,22 @@ class OrdersController < ApplicationController
     params.require(:order).permit :name, :email, :address, :phone
   end
 
-  def ensure_cart_isnt_empty
-    return unless cart.line_items.empty?
-    redirect_to root_url
-    flash[:notice] = t "empty"
-  end
-
   def create_order
-    @order = if current_user
-               current_user.orders.build order_params
-             else
-               Order.new order_params
-             end
+    @order = Order.new order_params
+    order.user = current_user if current_user
+    @generate = (0...8).map{(Settings.generate + rand(Settings.rand)).chr}.join
   end
 
   def create_success
     Cart.destroy session[:cart_id]
     session[:card_id] = nil
     redirect_to root_url
-    flash[:success] = t "thank"
+    flash[:success] = current_user ? t("thank") : t("check")
   end
 
   def create_notification order
-    Notifycation.create content: "new_order", order_url: order_path(order)
+    ProductCodeMailer.product_code(order).deliver_now if current_user.blank?
+    Notification.create content: "new_order", order_url: order_path(order)
     ActionCable.server.broadcast "notification_channel", message: "success"
   end
 end

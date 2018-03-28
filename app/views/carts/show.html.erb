@@ -1,91 +1,93 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <table class="table table-hover">
+    <div class="col-md-8">
+      <div class="features-items">
+        <h2 class="title text-center"><%= t "product" %></h2>
+      </div>
+      <table class="shop-table cart">
         <thead>
           <tr>
-            <th><%= t ".product" %></th>
-            <th><%= t ".quantity" %></th>
-            <th class="text-center"><%= t "status" %></th>
-            <th class="text-center"><%= t "price" %></th>
-            <th class="text-center"><%= t "total" %></th>
-            <th></th>
+            <th><%= t "image" %></th>
+            <th><%= t "product" %></th>
+            <th><%= t "quantity" %></th>
+            <th><%= t "price" %></th>
+            <th><%= t "total" %></th>
+            <th><%= t "remove" %></th>
           </tr>
         </thead>
         <tbody>
           <% @cart.line_items.each do |item| %>
-            <tr>
-              <td class="col-sm-2 col-md-3">
-                <div class="media">
-                  <h4 class="media-heading">
-                    <%= link_to item.product.name,
-                      item.product %>
-                  </h4>
-                  <h5 class="media-heading">
-                    <%= t "by" %>
-                    <%= link_to item.product.brand.name,
-                      item.product.brand %>
-                  </h5>
+            <tr class="cart_item">
+              <td class="product-thumbnail">
+                <%= image_tag "product1.jpg" %>
+              </td>
+               <td class="product-name">
+                <%= link_to item.product.name, item.product %>
+              </td>
+              <td>
+                <div class="quantity buttons_added">
+                  <input type="button" class="minus" value="-">
+                  <input type="number" size="4"
+                    value="<%= item.quantity %>" disabled>
+                  <input type="button" class="plus" value="+">
                 </div>
               </td>
-              <td class="col-sm-1 col-md-1">
-                <input type="email" class="form-control"
-                  id="exampleInputEmail1" value="<%= item.quantity %>" disabled>
+              <td>
+                <span class="amount">
+                  <%= number_to_currency item.product.price %>
+                </span>
               </td>
-              <td class="col-sm-1 col-md-1 text-center">
-                <%= item.product.available? ? t("stock") : t("out_of_stock") %>
+              <td>
+                <span class="amount">
+                  <%= number_to_currency item.total_price %>
+                </span>
               </td>
-              <td class="col-sm-1 col-md-1 text-center">
-                <strong><%= number_to_currency item.product.price %></strong>
-              </td>
-              <td class="col-sm-1 col-md-1 text-center">
-                <strong><%= number_to_currency item.total_price %></strong>
-              </td>
-              <td class="col-sm-1 col-md-1">
+              <td class="product-remove">
                 <%= link_to item, method: :delete,
                   data: {confirm: t("are_you_sure")},
                   class: "btn btn-danger" do %>
                   <span class="glyphicon glyphicon-remove"></span>
-                  <%= t ".remove" %>
                 <% end %>
               </td>
             </tr>
           <% end %>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><h3><%= t "total" %></h3></td>
-            <td class="text-right">
-              <h3><strong><%= number_to_currency @cart.total_price %></strong></h3>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to @cart, method: :delete,
-                data: {confirm: t("are_you_sure")},
-                class: "btn btn-primary" do %>
-                <%= t "remove_all_product" %>
-              <% end %>
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-                <%= link_to t("back_to_home_to_continue_shopping"), root_path %>
-              </button>
-            </td>
-            <td>
-              <%= link_to new_order_path, method: :get,
-                class: "btn btn-success" do %>
-                <%= t "checkout" %>
-                <span class="glyphicon glyphicon-play"></span>
-              <% end %>
-            </td>
-          </tr>
         </tbody>
       </table>
+    </div>
+    <div class="col-md-4">
+      <div class="features-items">
+        <h2 class="title text-center"><%= t "order" %></h2>
+      </div>
+      <div class="cart-totals">
+        <table>
+          <tbody>
+            <tr class="order-total">
+              <th><%= t "total" %></th>
+              <td>
+                <strong>
+                  <span class="amount">
+                    <%= number_to_currency @cart.total_price %>
+                  </span>
+                </strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <%= link_to new_order_path, method: :get,
+        class: "submit" do %>
+        <span class="glyphicon glyphicon-play"></span>
+        <%= t "checkout" %>
+      <% end %>
+      <br /><br />
+      <%= link_to @cart, method: :delete,
+        data: {confirm: t("are_you_sure")},
+        class: "submit" do %>
+        <%= t "remove_all_product" %>
+      <% end %>
+      <br /><br />
+      <%= link_to t("back_to_home_to_continue_shopping"),
+        root_path, class: "submit" %>
     </div>
   </div>
 </div>
