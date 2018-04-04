@@ -17,7 +17,8 @@ end
   description = Faker::LeagueOfLegends.quote
   price = 1000000
   product = Product.new(name: name, description: description, price: price,
-    created_at: Time.zone.now, available: true, percent: brand)
+    created_at: Time.zone.now, available: true)
   product.brand_id = brand
   product.save
 end
+

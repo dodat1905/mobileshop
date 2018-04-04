@@ -1,9 +1,11 @@
 <div class="col-md-3">
   <div class="list-group">
-    <%= link_to admin_path, class: "list-group-item active main-color-bg" do %>
-      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-      <%= t "dashboard" %>
-    <% end %>
+    <div class="add-to-cart-button">
+      <%= link_to admin_static_pages_path do %>
+        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        <%= t "dashboard" %>
+      <% end %>
+    </div>
     <%= link_to admin_brands_path, class: "list-group-item" do %>
       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
       <%= t "brand" %>

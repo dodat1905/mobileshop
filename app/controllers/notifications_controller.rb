@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
   before_action :unread_message
 
   def index
-    @notifications = Notification.all
+    @notifications = Notification.desc.all
   end
 
   # rubocop:disable Rails/SkipsModelValidations

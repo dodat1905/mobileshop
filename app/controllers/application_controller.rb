@@ -20,4 +20,6 @@ class ApplicationController < ActionController::Base
   def force_json
     request.format = :json
   end
+
+  before_action :current_cart
 end

@@ -1,16 +1,19 @@
 <div class="col-sm-3">
-  <%= link_to brands_path, class: "list-group-item active main-color-bg" do %>
-    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-    <%= t "brand" %>
-    <span class="badge"><%= brands.size %></span>
-  <% end %>
-  <div class="list-group">
-    <% brands.each do |brand| %>
-      <%= link_to brand, class: "list-group-item" do %>
-        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-        <%= brand.name %>
-        <span class="badge"><%= brand.products.size %></span>
-      <% end %>
-    <% end %>
+  <div class="left-sidebar">
+    <div class="brands_products">
+      <h2><%= t "brands" %></h2>
+      <div class="brands-name">
+        <% brands.each do |brand| %>
+          <ul class="nav nav-pills nav-stacked">
+            <li>
+              <%= link_to brand do %>
+                <span class="pull-right">(<%= brand.products.size %>)</span>
+                <%= brand.name %>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

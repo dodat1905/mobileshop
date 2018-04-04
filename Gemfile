@@ -24,6 +24,7 @@ end
  gem "bootstrap-will_paginate", "1.0.0"
  gem "carrierwave"
  gem "cocoon"
+ gem "toastr-rails"
 
 group :development, :test do
  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

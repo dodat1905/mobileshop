@@ -28,5 +28,6 @@ Rails.application.routes.draw do
     get :search, to: "searches#index"
     resources :products
     mount ActionCable.server, at: "/cable"
+    resources :avatar
   end
 end

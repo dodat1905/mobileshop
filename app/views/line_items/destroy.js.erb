@@ -1,0 +1,7 @@
+$('.cart_price').html('<%= number_to_currency @cart.total_price %>');
+$("#<%=@id%>").remove();
+$(document).ready(function() {
+  $('#cart_size').html('<%= cart_size %>');
+  $('#cart').html('<%= cart_size %>');
+  toastr.success('Đã xóa khỏi giỏ hàng');
+});

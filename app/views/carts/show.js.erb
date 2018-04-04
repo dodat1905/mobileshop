@@ -1,0 +1,8 @@
+$(function() {
+    $('a').click("turbolinks:load", function() {
+        // resultContainer is the id of some element that will receive
+        // the HTML from the link
+        $('.minus').load(this.href);
+        return false;
+    });
+});

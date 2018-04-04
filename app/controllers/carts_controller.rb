@@ -6,8 +6,7 @@ class CartsController < ApplicationController
   def show; end
 
   def destroy
-    cart.destroy
-    session[:cart_id] = nil
+    cart.line_items.destroy_all
     redirect_to root_url
   end
 

@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    order.update_attributes order_status: "cancelled"
+    order.update_attributes order_status: "cancelled" if order.processing?
     redirect_to order
   end
 
@@ -93,7 +93,7 @@ class OrdersController < ApplicationController
 
   def create_notification order
     ProductCodeMailer.product_code(order).deliver_now if current_user.blank?
-    Notification.create content: "new_order", order_url: order_path(order)
+    Notification.create content: "new_order", order_url: admin_order_path(order)
     ActionCable.server.broadcast "notification_channel", message: "success"
   end
 end
