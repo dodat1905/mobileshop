@@ -190,3 +190,11 @@ en:
   order_updated: "Order updated"
   order_deleted: "Order deleted"
   delete_coupon: "Delete this coupon"
+  cancelled: "Order cancelled"
+  processing: "Đang xử lí"
+  delivered: "Đã gửi đi"
+  :order_status: "Tình trạng đơn hàng"
+  carts:
+    show:
+      invalid: "Cart invalid"
+  confirm_order: "Confirm purchase this order"

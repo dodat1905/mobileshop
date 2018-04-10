@@ -3,7 +3,7 @@ if ('<%= cart_size %>' == 0) {
 }
 $('#total_price').html('<%= j render "carts/total_price", cart: @cart,
   coupon: @coupon %>');
-$('#<%= @item.id %>').remove();
+$('#list_item').html('<%= j render "carts/list_item", cart: @cart %>');
 $(document).ready(function() {
   $('#cart_size').html('<%= cart_size %>');
   $('#cart').html('<%= cart_size %>');

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post "orders/new", to: "orders#create"
     get "admin", to: "admin#index"
     namespace :admin do
-      resources :coupons, except: :show
+      resources :coupons
       resources :products
       resources :brands
       resources :orders

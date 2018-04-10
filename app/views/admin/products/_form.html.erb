@@ -4,8 +4,8 @@
   <%= f.label t :name_product %>
   <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.label t :available %>
-  <%= f.check_box :available %><br />
+  <%= f.label t :available %>:<br />
+  <%= f.check_box :available %> <%= t :available? %><br />
 
   <%= f.label t :price %>
   <%= f.number_field :price, class: "form-control" %>

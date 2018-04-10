@@ -1,7 +1,11 @@
 <% provide :title, t("edit_product") %>
-<h1><%= t "edit_product" %></h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render "form", order: @order %>
+<div class="col-md-9">
+  <div class="panel panel-primary">
+    <div class="add-to-cart-button">
+      <%= t "order" %>
+    </div>
+    <div class="panel-body">
+      <%= render "form", order: @order, order_statuses: @order_statuses %>
+    </div>
   </div>
 </div>

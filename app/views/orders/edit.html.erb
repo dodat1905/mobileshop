@@ -1,3 +1,3 @@
 <% provide :title, t("order") %>
 <%= render "view", line_items: @support_coupon.line_items, order: @order,
-  coupon: @support_coupon.coupon %>
+  coupon: @support_coupon.find_coupon %>

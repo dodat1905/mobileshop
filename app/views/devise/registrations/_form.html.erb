@@ -30,12 +30,6 @@
   <%= f.label t :password_confirmation %><br />
   <%= f.password_field :password_confirmation,
     class: "form-control" %><br />
-  <% if resource.id %>
-    <%= f.label t :current_password %>
-    <i>(<%= t "need_password" %>)</i><br />
-    <%= f.password_field :current_password,
-      class: "form-control" %><br />
-  <% end %>
 
   <%= f.label t :address %><br />
   <%= f.text_field :address, class: "form-control" %><br />

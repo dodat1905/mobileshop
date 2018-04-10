@@ -55,7 +55,7 @@
                   <b><%= number_to_currency line_items.
                     inject(0) {|sum, f| sum + f.total_price } %> |</b>
                 <% end %>
-                <%= t "status" %>: <%= order.order_status %>
+                <%= t "status" %>: <%= t "#{order.order_status}" %>
                 <% if order.processing? %>
                   | <%= link_to t("cancel"), order_path(order), method: :patch %>
                 <% end %>

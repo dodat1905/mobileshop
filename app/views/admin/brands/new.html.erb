@@ -1,11 +1,7 @@
-<% provide :title, t("sign_up") %>
+<% provide :title, t("new_brand") %>
 <div class="col-md-9">
   <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-      	<%= t "new_brand" %>
-      </h3>
-    </div>
+    <div class="add-to-cart-button"><%= t "brand" %></div>
     <div class="panel-body">
       <%= render "form", brand: @brand %>
     </div>

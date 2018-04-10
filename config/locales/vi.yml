@@ -268,3 +268,13 @@ vi:
   order_updated: "Đã cập nhật đơn hàng"
   order_deleted: "Đã xóa đơn hàng này"
   delete_coupon: "Xóa mã giảm giá này"
+  image: "Hình ảnh"
+  remove: "Xóa"
+  cancelled: "Hủy đơn hàng"
+  processing: "Đang xử lí"
+  delivered: "Đã gửi đi"
+  :order_status: "Tình trạng đơn hàng"
+  carts:
+    show:
+      invalid: "Giỏ hàng không tồn tại"
+  confirm_order: "Xác nhận mua đơn hàng này?"

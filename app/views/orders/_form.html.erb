@@ -60,8 +60,7 @@
   <% end %>
   <div class="form-group">
     <div class="col-md-12">
-      <%= f.submit t :submit,
-        class: "btn btn-primary form-control" %>
+      <%= f.submit t(:submit), data: {confirm: t("confirm_order")} %>
     </div>
   </div>
 <% end %>

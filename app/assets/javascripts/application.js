@@ -14,6 +14,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require toastr
+//= require moment
+//= require bootstrap-sortable
 //= require_tree .
 //= require bootstrap-sprockets
 //= require ckeditor/init

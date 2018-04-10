@@ -1,26 +1,18 @@
 <% provide :title, t("product") %>
-<%= render "admin/static_pages/header" %>
-<section id="main">
-  <div class="container">
-    <div class="row">
-      <%= render "admin/static_pages/sidebar" %>
-      <div class="col-md-9">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= t "product" %></h3>
-          </div>
-          <div class="panel-body">
-            <div class="panel-footer">
-              <%= link_to t("add_new_product"),
-                new_admin_product_path(brand_id: @brand) %> |
-              <%= link_to t("edit_brand"), edit_admin_brand_path(@brand) %> |
-              <%= link_to t("delete_brand"), admin_brand_path(@brand),
-                method: :delete, data: {confirm: t("are_you_sure")} %>
-            </div>
-            <%= render "admin/products/index", products: @products %>
-          </div>
-        </div>
+<div class="col-md-9">
+  <div class="panel panel-primary">
+    <div class="add-to-cart-button">
+      <%= t "product_of" %> <%= @brand.name %>
+    </div>
+    <div class="panel-body">
+      <div class="panel-footer">
+        <%= link_to t("add_new_product"),
+          new_admin_product_path(brand_id: @brand) %> |
+        <%= link_to t("edit_brand"), edit_admin_brand_path(@brand) %> |
+        <%= link_to t("delete_brand"), admin_brand_path(@brand),
+          method: :delete, data: {confirm: t("are_you_sure")} %>
       </div>
+      <%= render "admin/products/index", products: @products %>
     </div>
   </div>
-</section>
+</div>
