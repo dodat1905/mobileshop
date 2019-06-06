@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
   end
 
   def create_notification order
-    ProductCodeMailer.product_code(order).deliver_now if current_user.blank?
+    SendEmailWorker.perform_at(Time.zone.now + 20.seconds, order.id)
     Notification.create content: "new_order", order_url: admin_order_path(order)
     ActionCable.server.broadcast "notification_channel", message: "success"
   end

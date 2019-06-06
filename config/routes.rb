@@ -1,4 +1,7 @@
+
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
   scope "(:locale)", locale: /en|vi/ do
     resources :discounts, only: :update
     resources :carts, only: %i(show destroy)

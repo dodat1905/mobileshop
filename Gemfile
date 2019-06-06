@@ -27,7 +27,9 @@ end
  gem "toastr-rails"
  gem 'dotenv-rails', groups: [:development, :test]
  gem "hirb"
+ gem "pry"
  gem "momentjs-rails"
+ gem "sidekiq"
  gem "rails_bootstrap_sortable"
 
 group :development, :test do
